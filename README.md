@@ -8,6 +8,9 @@ https://github.com/microsoft/generative-ai-for-beginners/blob/main/01-introducti
 
 
 
+
+
+
 1. Giới thiệu về Generative AI
 Generative AI là một mô hình trí tuệ nhân tạo có khả năng sinh ra dữ liệu mới từ dữ liệu quá khứ
 Điều này có nghĩa là Generative AI không chỉ phân tích và dự đoán dựa trên dữ liệu hiện có mà còn có thể tạo ra nội dung mới hoàn toàn. 
@@ -36,7 +39,7 @@ Gen AI và trí tuệ nhân tạo
 + Deep learning: .........................
 Generative AI: ...........................
 
-3. Khái niệm Tokenizer: phương pháp chuyển đổi dữ liệu text sang dữ liệu số
+3. Khái niệm Tokenizer: phương pháp tách các câu thành các từ riêng lẻ
 Có nhiều phương pháp để tạo token, cách đơn giản nhất là tách các từ trong câu thành các token và chuyển đôi chúng sang dạng số.
 Ví dụ câu "Jim Henson was a puppeteer" được tách thành các từ ['Jim', 'Henson', 'was', 'a', 'puppeteer'] 
 
@@ -49,6 +52,41 @@ LLM là một mô hình Generative AI, mô hình này có thể sinh ra các chu
 cho LLM hoạt động. Ví dụ:
 
 ===============================================
+5. Phân loại các mô hình LLM
+LLM có thể được phân lọa dựa trên nhiều tiêu chí khác nhau, như kiến trúc network, dữ liệu huấn luyện, và khả năng ứng dụng.
+Phân loại theo dữ liệu chúng ta có các mô hình LLM cho text, audio, video, image,...
+
+Xử lý âm thanh và nhận dạng giọng nói, các mô hình dựa trên Whisper có hiệu quả khá tốt, đây là các model được huấn luyện trên tập dữ liệu với nhiều loại âm thanh và có thể nhận dạng
+giọng nới với nhiều ngôn ngữ khác nhau
+
+Dữ liệu hình ảnh: model DALL-E là một mô hình có hiệu quả tốt, model này được phát triển bởi Azure OpenAI 
+Text generation: trong lĩnh vực này các model được đánh giá tốt nhất hiện tại là GPT-3, GPT-4 hoặc MIstral
+Các model nền tảng: đây là các model AI được xây dựng ra dựa trên một số tiêu chí sau:
++ Chúng được huấn luyện theo các phương pháp unsupervised learning hoặc self-supervised 
++ Là mô hình lớn dựa trên mạng nơ ron với hàng tỷ tham số
++ Chúng được sử dụng làm nền tảng cho việc phát triển các model AI mới dựa trên các kỹ thuật như fine-tuning (tinh chỉnh model)
+
+6. Khai niệm Embedding
+Embedding là phương pháp để chuyển đổi dữ liệu text thành dữ liệu số. Embedding giúp các LLM dễ dàng tìm ra mối quan hệ giữa các từ hoặc các câu. Ví dụ mỗi câu có thể
+chuyển đổi thành một vector số, mối quan hệ giữa các câu có thể được tính theo khoảng cách cosin giữa hai vector số.
+Ví dụ: "Microsoft" -> [8, 2, 5, 0]
+7. Một số model LLM
+
+8. Cải thiện chất lượng cho các model LLM
+Có 3 phương pháp chính để cải thiện chất lượng của các model LLM khi triển khai trong thực tiễn
+Prompt engineering with context: đây là phương pháp đơn giản nhất, phương pháp này chúng ta chỉ cần tạo các chỉ dẫn để cung cấp thêm thông tin cho các mô hình LLM trong quá trình sinh nội dung mới
+Retrieval Augmented Generation, RAG: phương pháp này thường sẽ tạo và lưu trữ dữ liệu cho ứng dụng cụ thể trong các hệ quản trị CSDL và sử dụng các phương pháp similarity search để
+tìm kiếm các nội dung phù hợp và cung cấp cho mô hình LLM trong quá trình sinh nội dung mới.
+Fine-tuned model: đây là phương pháp đòi hỏi kỹ thuật tinh chỉnh model dựa trên tập dữ liệu riêng nhằm tạo ra model mới hiệu quả hơn.
+
+9. Using Generative AI Responsibly
+
+
+
+
+
+
+
 
 
 
