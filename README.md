@@ -11,6 +11,9 @@ https://github.com/microsoft/generative-ai-for-beginners/blob/main/01-introducti
 
 
 
+
+
+
 1. Giới thiệu về Generative AI
 Generative AI là một mô hình trí tuệ nhân tạo có khả năng sinh ra dữ liệu mới từ dữ liệu quá khứ
 Điều này có nghĩa là Generative AI không chỉ phân tích và dự đoán dựa trên dữ liệu hiện có mà còn có thể tạo ra nội dung mới hoàn toàn. 
@@ -80,6 +83,66 @@ tìm kiếm các nội dung phù hợp và cung cấp cho mô hình LLM trong qu
 Fine-tuned model: đây là phương pháp đòi hỏi kỹ thuật tinh chỉnh model dựa trên tập dữ liệu riêng nhằm tạo ra model mới hiệu quả hơn.
 
 9. Using Generative AI Responsibly
+Sử dụng Generative AI một cách đúng đắn
+chúng ta có thể sử dụng Generative AI để sinh ra các câu trả lời hữu ích cho người dùng, tuy nhiên trong một số trường hợp Generative AI cũng sinh ra các kết quả không mong đợi
+có thể gay hại cho người sử dụng
+ 
+Vấn đề ảo giác (Hallucinations): là hiện tượng các LLM tạo ra một nội dung hoàn toàn vô nghĩa hoặc sai sự thật dựa trên các nguồn thông tin đã được cung cấp.
+Ví dụ chúng ta có câu hỏi: "Who was the sole survivor of Titanic?"
+Đây là câu trả lời tưởng chừng rất hoàn hảo, tuy nhiên nó không đúng sự thật, bởi trong vụ tai nạn Titanic có rất nhiều người sống sót, điều này dẫn đến hậu quả là AI không đáng tin cậy
+
++ Các nội dung có hại: một số hệ thống LLM có thể sinh ra các nội dung có hại cho người sử dụng
+Các nội dung có hại:
+- Cung cấp hoặc khuyến khích tự làm hại bản thân hoặc gây hại cho một số nhóm khác
+- Nội dung mang tính thù hận, hạ thấp nhân phẩm
+- Có hành vi bạo lực
+- Hiển thị nội dung khiêu dâm
++ Thiếu công bằng
+=> Làm thế nào để sử dụng Generative AI một cách đúng đắn
+ 1) Measure Potential Harms: đo lường tác hại tiềm ẩn: đảm bảo kiểm thử nhiều kịch bản với các context khác nhau được cung cấp cho LLM
+ 2) Giảm thiểu tác hại tiềm ẩn: có thể triển khai vấn đề này ở 4 lớp khác nhau
+ + Model: chọn các model LLM một cách đúng đắn, chú ý rằng các model lớn như GPT 4 có thể gây ra nhiều rủi ro về việc sinh ra các nội dung có hại khi áp dụng chúng vào các trường hợp dữ liệu nhỏ cụ thể
+ chính vì vậy chúng ta cần phải tinh chỉnh model khi muốn sử dụng trong các trường hợp cụ thể
+ 
+ + Safety System: xậy dựng hệ thống an toàn với nhiều giải pháp đảm bảo an toàn thông tin cho người sử dụng
+ + Metaprompt: là phương pháp giới hạn hoặc định hướng mô hình dựa trên một số hành vi và thông tin.
+ + User Experience: trải nghiệm người dùng, nên tạo ra một giao diện tương tác thuận tiện và thân thiện với người sử dụng
+ 
+ BÀI 4: Prompt Engineering Fundamentals
+What is Prompt Engineering?: định hướng trả lời cho LLM, là quá trình thiết kế tối ưu hóa đầu vào cho các model LLM nhằm tạo ra câu trả lời chính xác nhất. Có hai giai đoạn
++ Thiết kế lời nhắc (prompt) cho LLM cho các mục đích cụ thể
++ Tinh chỉnh lời nhắc nhằm cải thiện chất lượng câu trả lời
+Why do we need Prompt Engineering?: tại sao cần có lời nhắc cho các mô hình LLM
+thực tế LLM là các mô hình ngôn ngữ lới, chúng được huấn luyện trên các tập dữ liệu vô cùng lớn, do vậy việc sinh ra các câu trả lời một cách chính xác và nhất quán là không thể. Nguyên nhận chính là do:
++ Phản hồi từ các mô hình LLM là ngẫu nhiên: các mô hình LLM có thể sẽ trả về các câu trả lời khác nhau với cùng một câu hỏi
+
++ Các mô hình có thể bịa ra các câu trả lời: LLM được huấn luyện trên các tập dữ liệu rất lớn, tuy nhiên chúng vẫn là hữu hạn và có thể thiếu tri thức về câu hỏi do người sử dụng đưa vào, 
+khi đó LLM có thể sẽ tự bịa ra các câu trả lời
++ Có nhiều model LLM và khả năng của chúng là khác nhau
+  
+Fabrications Example (bịa đặt câu trả lời):
+
+*) prompt construction
+- Các kỹ thuật xây dựng lới nhắc (Prompt)
+- Basic prompt: một dòng text được gửi tới đầu vào cho các mô hình LLM, không cung cấp thêm bất kỳ ngữ cảnh nào khác
+
+- Complex Prompt: đây là các lời nhắc được xây dựng theo cấu trúc Input/Output tương ứng với đầu vào của người sử dụng và phản hồi của LLM
++ Thông báo của hệ thống thiết lập ngữ cảnh cho hành vi của trợ lý ảo
+-Instruction Prompt: xây dựng các lời nhắc nhằm mô tả chi tiết về nhiệm vụ cần hoàn thành cho các mô hình LLM
+
+*) Primary Content: nội dung chính
+Với mẫu Prompt này, các lời nhắc được chia thành 2 phần: + một lời hướng dẫn, + nội dung có liên quan
+
+
+ 
+ 
+
+
+
+
+
+
+
 
 
 
