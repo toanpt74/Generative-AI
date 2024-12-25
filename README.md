@@ -8,6 +8,9 @@ https://www.cmu.edu/intelligentbusiness/expertise/genai-principles.pdf
 https://medium.com/@raja.gupta20/generative-ai-for-beginners-part-1-introduction-to-ai-eadb5a71f07d
 
 
+https://github.com/microsoft/AI-For-Beginners/blob/main/lessons/1-Intro/README.md
+
+
 
 
 
