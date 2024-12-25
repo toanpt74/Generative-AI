@@ -14,6 +14,9 @@ https://github.com/microsoft/generative-ai-for-beginners/blob/main/01-introducti
 
 
 
+
+
+
 1. Giới thiệu về Generative AI
 Generative AI là một mô hình trí tuệ nhân tạo có khả năng sinh ra dữ liệu mới từ dữ liệu quá khứ
 Điều này có nghĩa là Generative AI không chỉ phân tích và dự đoán dựa trên dữ liệu hiện có mà còn có thể tạo ra nội dung mới hoàn toàn. 
@@ -133,9 +136,57 @@ Fabrications Example (bịa đặt câu trả lời):
 *) Primary Content: nội dung chính
 Với mẫu Prompt này, các lời nhắc được chia thành 2 phần: + một lời hướng dẫn, + nội dung có liên quan
 
+* Prompt Cues: gợi ý nhanh
+Phương pháp này sử dụng các gợi ý cho LLM sinh câu trả lời.
+Ví dụ:
+
+* Prompt Templates: mẫu cho lời nhắc 
+chúng ta có thể xây dựng trước tập các mẫu về lời nhắc và sử dụng cho các mô hình LLM
+
+9) Creating Advanced prompts: các kỹ thuật prompt nâng cao
+Tạo lời nhắc nhằm định hướng cho các mô hình LLM sinh ra các câu trả lời chính xác hơn với câu hỏi, 
+các phương pháp tạo lời nhắc đơn giản có thể không hiệu quả.
+có thể áp dụng các kỹ thuật khác nhau cho việc tạo lời nhắc
+Một số kỹ thuật tạo lời nhắc:
+Zero-shot learning là việc đưa nhiệm vụ cho mô hình mà không cung cấp bất kỳ ví dụ nào về kết quả mong muốn, do đó nó được gọi là zero-shot. 
+Ví dụ, chúng ta có thể đưa cho mô hình một câu nói của user (message) và mong đợi nó xác định cảm xúc của message đó.
+VD:
+Prompt: "What is Algebra?"
+Answer: "Algebra is a branch of mathematics that studies mathematical symbols and the rules for manipulating these symbols."
+
+Few-shot prompting: Few-shot learning cung cấp cho mô hình một số lượng nhỏ ví dụ minh họa chất lượng bao gồm cả input và output mong muốn của tác vụ đó. 
+Bằng cách nhìn vào những ví dụ minh họa này, 
+mô hình có thể hiểu rõ hơn ý định và tiêu chí mong muốn của mình để tạo ra kết quả đầu ra chính xác
+Ví dụ:
+Prompt: "Write a poem in the style of Shakespeare. Here are a few examples of Shakespearean sonnets.: Sonnet 18: 'Shall I compare thee to a summer's day? Thou art more lovely and more temperate...' Sonnet 116: 'Let me not to the marriage of true minds Admit impediments. Love is not love Which alters when it alteration finds...' Sonnet 132: 'Thine eyes I love, and they, as pitying me, Knowing thy heart torment me with disdain,...' Now, write a sonnet about the beauty of the moon."
+Answer: "Upon the sky, the moon doth softly gleam, In silv'ry light that casts its gentle grace,..."
+
+Chain-of-Thought (CoT) Prompting: gợi ý theo chuỗi, hướng dẫn LLM cách thực hiện công việc thông qua một chuỗi các bước.
+Ví dụ: 
+Prompt: "Alice has 5 apples, throws 3 apples, gives 2 to Bob and Bob gives one back, how many apples does Alice have?"
+- Answer: 5
+
+
+* Generated knowledge: là kỹ thuật khuyến khích mô hình tự động tạo hoặc nhớ lại thông tin liên quan trước khi thực hiện nhiệm vụ chính
+Phương pháp này thường sử dụng LLM để tạo ra nhiều câu trả lời cho một câu hỏi, sau đó sử dụng các kết quả đầu ra của LLM để làm ngữ cảnh cho câu trả lời duy nhất
+
+Giả sử câu hỏi là: “Tại sao nước biển lại mặn?”
+Thay vì trả lời trực tiếp, Knowledge Generation có thể hoạt động như sau:
+Bước 1 - Tạo kiến thức nền: Mô hình sinh ra kiến thức như "Nước biển chứa nhiều muối hòa tan, chủ yếu là natri và clo," 
+và "Muối trong nước biển đến từ sự bào mòn của đá và quá trình núi lửa dưới biển."
+Bước 2 - Sử dụng kiến thức để trả lời: Sau đó, mô hình có thể trả lời rằng 
+"Nước biển mặn là do quá trình bào mòn và các khoáng chất từ đất đá, cũng như các hoạt động núi lửa dưới đáy biển hòa tan vào nước."
+
+
 
  
  
+
+
+
+
+
+
 
 
 
